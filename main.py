@@ -25,15 +25,15 @@ def press_keys():
     os.system(f'call {bat_path} "Warframe" ""')
     time.sleep(1)
 
-    print(f"Pressing and releasing key 5 with {round(press_release_1 * 100, 2)} ms delay.")
+    print(f"Pressing and releasing key 5 with {(round(press_release_1 * 100, 2))} ms delay.")
     kb.press("5")
     time.sleep(press_release_1)
     kb.release("5")
 
-    print(f"Pausing for {round(sleep_time, 2)} seconds.")
+    print(f"Pausing for {(round(sleep_time, 2))} seconds.")
     time.sleep(sleep_time)
 
-    print(f"Pressing and releasing key 5 with {round(press_release_2 * 100, 2)} ms delay.")
+    print(f"Pressing and releasing key 5 with {(round(press_release_2 * 100, 2))} ms delay.")
     kb.press("5")
     time.sleep(press_release_2)
     kb.release("5")
