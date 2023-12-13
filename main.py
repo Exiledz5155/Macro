@@ -25,15 +25,15 @@ def press_keys():
     os.system(f'call {bat_path} "Warframe" ""')
     time.sleep(1)
 
-    print(f"Pressing and releasing key 5 with {press_release_1 * 100} ms delay.")
+    print(f"Pressing and releasing key 5 with {round(press_release_1 * 100, 2)} ms delay.")
     kb.press("5")
     time.sleep(press_release_1)
     kb.release("5")
 
-    print(f"Pausing for {sleep_time} seconds.")
+    print(f"Pausing for {round(sleep_time, 2)} seconds.")
     time.sleep(sleep_time)
 
-    print(f"Pressing and releasing key 5 with {press_release_2 * 100} ms delay.")
+    print(f"Pressing and releasing key 5 with {round(press_release_2 * 100, 2)} ms delay.")
     kb.press("5")
     time.sleep(press_release_2)
     kb.release("5")
@@ -50,9 +50,26 @@ def main():
     # os.chdir(r'C:\Users\Exiledz\PycharmProjects\Macro\dist')
     # print("Playing start.mp3")
     # ply('./start.mp3')
+
+    files_in_directory = os.listdir(script_dir)
+
+    mp3_files = [file for file in files_in_directory if file.lower().endswith(".mp3")]
+
+    if mp3_files:
+        # Play the first mp3 file
+        mp3_to_play = os.path.join(script_dir, mp3_files[0])
+    else:
+        print("No mp3 files found in the script directory.")
+
     while True: # TODO add hotkey function
-        print("Playing start.mp3")
-        ply('./start.mp3')
+        if mp3_files:
+            # Play the first mp3 file
+            mp3_to_play = os.path.join(script_dir, mp3_files[0])
+            print(f"Playing {mp3_to_play}")
+            ply(mp3_to_play)
+        else:
+            print("No mp3 files found in the script directory.")
+
         press_keys()
 
         reset_timer = random.uniform(27.33, 49.56)
