@@ -1,4 +1,4 @@
-55@if (@X)==(@Y) @end /* JScript comment 
+@if (@X)==(@Y) @end /* JScript comment
         @echo off 
        
         rem :: the first argument is the script name as it will be used for proper help message 
