@@ -1,20 +1,20 @@
 import pydirectinput
 from pynput import mouse
-import time
 
+# Set the delay between key presses and releases
+pydirectinput.PAUSE = 0.01
 
 def on_click(x, y, button, pressed):
     if pressed and button == mouse.Button.x1:
         print("Macro activated!")
 
-        for key in ['1', '2', '4', '5']:
+        keys_to_press = ['1', '2', '4', '5']
+
+        for key in keys_to_press:
             pydirectinput.keyDown(key)
 
-        time.sleep(0.01)
-
-        for key in ['1', '2', '4', '5']:
+        for key in keys_to_press:
             pydirectinput.keyUp(key)
-
 
 # Main program
 if __name__ == "__main__":
